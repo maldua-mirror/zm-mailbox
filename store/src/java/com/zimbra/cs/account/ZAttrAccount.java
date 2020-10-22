@@ -17771,6 +17771,78 @@ public abstract class ZAttrAccount  extends MailTarget {
     }
 
     /**
+     * Whether Powerpaste functionality is enabled or not.
+     *
+     * @return zimbraFeaturePowerPasteEnabled, or true if unset
+     *
+     * @since ZCS 9.1.0
+     */
+    @ZAttr(id=3084)
+    public boolean isFeaturePowerPasteEnabled() {
+        return getBooleanAttr(Provisioning.A_zimbraFeaturePowerPasteEnabled, true, true);
+    }
+
+    /**
+     * Whether Powerpaste functionality is enabled or not.
+     *
+     * @param zimbraFeaturePowerPasteEnabled new value
+     * @throws com.zimbra.common.service.ServiceException if error during update
+     *
+     * @since ZCS 9.1.0
+     */
+    @ZAttr(id=3084)
+    public void setFeaturePowerPasteEnabled(boolean zimbraFeaturePowerPasteEnabled) throws com.zimbra.common.service.ServiceException {
+        HashMap<String,Object> attrs = new HashMap<String,Object>();
+        attrs.put(Provisioning.A_zimbraFeaturePowerPasteEnabled, zimbraFeaturePowerPasteEnabled ? TRUE : FALSE);
+        getProvisioning().modifyAttrs(this, attrs);
+    }
+
+    /**
+     * Whether Powerpaste functionality is enabled or not.
+     *
+     * @param zimbraFeaturePowerPasteEnabled new value
+     * @param attrs existing map to populate, or null to create a new map
+     * @return populated map to pass into Provisioning.modifyAttrs
+     *
+     * @since ZCS 9.1.0
+     */
+    @ZAttr(id=3084)
+    public Map<String,Object> setFeaturePowerPasteEnabled(boolean zimbraFeaturePowerPasteEnabled, Map<String,Object> attrs) {
+        if (attrs == null) attrs = new HashMap<String,Object>();
+        attrs.put(Provisioning.A_zimbraFeaturePowerPasteEnabled, zimbraFeaturePowerPasteEnabled ? TRUE : FALSE);
+        return attrs;
+    }
+
+    /**
+     * Whether Powerpaste functionality is enabled or not.
+     *
+     * @throws com.zimbra.common.service.ServiceException if error during update
+     *
+     * @since ZCS 9.1.0
+     */
+    @ZAttr(id=3084)
+    public void unsetFeaturePowerPasteEnabled() throws com.zimbra.common.service.ServiceException {
+        HashMap<String,Object> attrs = new HashMap<String,Object>();
+        attrs.put(Provisioning.A_zimbraFeaturePowerPasteEnabled, "");
+        getProvisioning().modifyAttrs(this, attrs);
+    }
+
+    /**
+     * Whether Powerpaste functionality is enabled or not.
+     *
+     * @param attrs existing map to populate, or null to create a new map
+     * @return populated map to pass into Provisioning.modifyAttrs
+     *
+     * @since ZCS 9.1.0
+     */
+    @ZAttr(id=3084)
+    public Map<String,Object> unsetFeaturePowerPasteEnabled(Map<String,Object> attrs) {
+        if (attrs == null) attrs = new HashMap<String,Object>();
+        attrs.put(Provisioning.A_zimbraFeaturePowerPasteEnabled, "");
+        return attrs;
+    }
+
+    /**
      * whether priority inbox feature is enabled
      *
      * @return zimbraFeaturePriorityInboxEnabled, or true if unset
@@ -41743,31 +41815,31 @@ public abstract class ZAttrAccount  extends MailTarget {
     /**
      * user preference of client type
      *
-     * <p>Valid values: [standard, advanced, zimbrax]
+     * <p>Valid values: [standard, advanced, modern]
      *
-     * @return zimbraPrefClientType, or ZAttrProvisioning.PrefClientType.advanced if unset and/or has invalid value
+     * @return zimbraPrefClientType, or ZAttrProvisioning.PrefClientType.modern if unset and/or has invalid value
      */
     @ZAttr(id=453)
     public ZAttrProvisioning.PrefClientType getPrefClientType() {
-        try { String v = getAttr(Provisioning.A_zimbraPrefClientType, true, true); return v == null ? ZAttrProvisioning.PrefClientType.advanced : ZAttrProvisioning.PrefClientType.fromString(v); } catch(com.zimbra.common.service.ServiceException e) { return ZAttrProvisioning.PrefClientType.advanced; }
+        try { String v = getAttr(Provisioning.A_zimbraPrefClientType, true, true); return v == null ? ZAttrProvisioning.PrefClientType.modern : ZAttrProvisioning.PrefClientType.fromString(v); } catch(com.zimbra.common.service.ServiceException e) { return ZAttrProvisioning.PrefClientType.modern; }
     }
 
     /**
      * user preference of client type
      *
-     * <p>Valid values: [standard, advanced, zimbrax]
+     * <p>Valid values: [standard, advanced, modern]
      *
-     * @return zimbraPrefClientType, or "advanced" if unset
+     * @return zimbraPrefClientType, or "modern" if unset
      */
     @ZAttr(id=453)
     public String getPrefClientTypeAsString() {
-        return getAttr(Provisioning.A_zimbraPrefClientType, "advanced", true);
+        return getAttr(Provisioning.A_zimbraPrefClientType, "modern", true);
     }
 
     /**
      * user preference of client type
      *
-     * <p>Valid values: [standard, advanced, zimbrax]
+     * <p>Valid values: [standard, advanced, modern]
      *
      * @param zimbraPrefClientType new value
      * @throws com.zimbra.common.service.ServiceException if error during update
@@ -41782,7 +41854,7 @@ public abstract class ZAttrAccount  extends MailTarget {
     /**
      * user preference of client type
      *
-     * <p>Valid values: [standard, advanced, zimbrax]
+     * <p>Valid values: [standard, advanced, modern]
      *
      * @param zimbraPrefClientType new value
      * @param attrs existing map to populate, or null to create a new map
@@ -41798,7 +41870,7 @@ public abstract class ZAttrAccount  extends MailTarget {
     /**
      * user preference of client type
      *
-     * <p>Valid values: [standard, advanced, zimbrax]
+     * <p>Valid values: [standard, advanced, modern]
      *
      * @param zimbraPrefClientType new value
      * @throws com.zimbra.common.service.ServiceException if error during update
@@ -41813,7 +41885,7 @@ public abstract class ZAttrAccount  extends MailTarget {
     /**
      * user preference of client type
      *
-     * <p>Valid values: [standard, advanced, zimbrax]
+     * <p>Valid values: [standard, advanced, modern]
      *
      * @param zimbraPrefClientType new value
      * @param attrs existing map to populate, or null to create a new map
@@ -41829,7 +41901,7 @@ public abstract class ZAttrAccount  extends MailTarget {
     /**
      * user preference of client type
      *
-     * <p>Valid values: [standard, advanced, zimbrax]
+     * <p>Valid values: [standard, advanced, modern]
      *
      * @throws com.zimbra.common.service.ServiceException if error during update
      */
@@ -41843,7 +41915,7 @@ public abstract class ZAttrAccount  extends MailTarget {
     /**
      * user preference of client type
      *
-     * <p>Valid values: [standard, advanced, zimbrax]
+     * <p>Valid values: [standard, advanced, modern]
      *
      * @param attrs existing map to populate, or null to create a new map
      * @return populated map to pass into Provisioning.modifyAttrs

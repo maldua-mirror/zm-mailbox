@@ -1667,7 +1667,7 @@ public class ZAttrProvisioning {
     public static enum PrefClientType {
         standard("standard"),
         advanced("advanced"),
-        zimbrax("zimbrax");
+        modern("modern");
         private String mValue;
         private PrefClientType(String value) { mValue = value; }
         public String toString() { return mValue; }
@@ -1679,7 +1679,7 @@ public class ZAttrProvisioning {
         }
         public boolean isStandard() { return this == standard;}
         public boolean isAdvanced() { return this == advanced;}
-        public boolean isZimbrax() { return this == zimbrax;}
+        public boolean isModern() { return this == modern;}
     }
 
     public static enum PrefComposeDirection {
@@ -6804,6 +6804,14 @@ public class ZAttrProvisioning {
      */
     @ZAttr(id=447)
     public static final String A_zimbraFeaturePortalEnabled = "zimbraFeaturePortalEnabled";
+
+    /**
+     * Whether Powerpaste functionality is enabled or not.
+     *
+     * @since ZCS 9.1.0
+     */
+    @ZAttr(id=3084)
+    public static final String A_zimbraFeaturePowerPasteEnabled = "zimbraFeaturePowerPasteEnabled";
 
     /**
      * whether priority inbox feature is enabled
